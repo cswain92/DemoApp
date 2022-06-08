@@ -10,30 +10,29 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import { initializeApp } from "firebase/app";
-import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { provideFirebaseApp, getApp } from '@angular/fire/app';
+import { Firestore, FirestoreInstances, getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { SignupComponent } from './signup/signup.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import { AuthService } from './core/service/auth.service';
 import { DataApiService } from './core/service/data-api.service';
 import { AuthModule, provideAuth } from '@angular/fire/auth';
 import { getAuth } from 'firebase/auth';
+import { environment } from 'src/environments/environment';
+import { HttpClientModule } from '@angular/common/http';
+import { initializeApp } from "firebase/app";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyDrhdet6ZsrQ7TWzT1RNB5UiIXJgbZ53Ek",
-  authDomain: "fir-264ec.firebaseapp.com",
-  projectId: "fir-264ec",
-  storageBucket: "fir-264ec.appspot.com",
-  messagingSenderId: "961278004125",
-  appId: "1:961278004125:web:da7b219084858fa700bd74"
-};
-
+const app = initializeApp(environment.firebase);
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    DashboardComponent
   ],
   imports: [
     AuthModule,
@@ -45,11 +44,19 @@ const firebaseConfig = {
     FormsModule,
     ReactiveFormsModule,
     // AngularFireModule.initializeApp(firebaseConfig),
+    
     MatStepperModule,
-    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
+    HttpClientModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSnackBarModule
+    
+    
+    
   ],
-  providers: [AuthService,DataApiService],
+  providers: [DataApiService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

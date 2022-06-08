@@ -1,0 +1,13 @@
+<mat-toolbar color="primary" class="header sticky">
+    <span class="cursor-pointer">User Dashboard</span>
+    <div style="width: 75%;"></div>
+    <button style="background: transparent; border: none; color: rgb(255, 254, 249);" (click)="logout()">
+        <mat-icon>account_circle</mat-icon> <span>Logout</span>
+    </button>
+
+</mat-toolbar>
+<div>
+    <h1 style="
+    text-align: center;
+">Welcome {{userData[0].displayName}}</h1>
+</div>
