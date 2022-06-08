@@ -1,0 +1,123 @@
+<!-- <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+    {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+  </button> -->
+  <mat-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Fill out your name</ng-template>
+        <mat-form-field appearance="fill">
+          <mat-label>First name</mat-label>
+          <input matInput placeholder="First name" formControlName="firstCtrl" required>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>Last name</mat-label>
+            <input matInput placeholder="Last name" formControlName="firstCtrl" required>
+          </mat-form-field><br>
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" formControlName="firstCtrl" required>
+          </mat-form-field><br>
+          <!-- <mat-form-field appearance="fill">
+            <mat-label>Phone</mat-label>
+            <input matInput placeholder="Phone" formControlName="firstCtrl" required>
+          </mat-form-field><br> -->
+          
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" formControlName="firstCtrl" required>
+          </mat-form-field><br>
+          <mat-form-field appearance="fill">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput placeholder="Confirm Password" formControlName="firstCtrl" required>
+          </mat-form-field>
+          
+        <div>
+          <!-- <button mat-button matStepperNext>Next</button> -->
+          <button _ngcontent-vxj-c68="" mat-button="" matstepperprevious="" class="btnsave mat-button mat-button-base" type="button">
+            <span class="mat-button-wrapper">Back</span>
+            <div matripple="" class="mat-ripple mat-button-ripple"></div>
+            <div class="mat-button-focus-overlay"></div>
+          </button>
+          <button _ngcontent-vxj-c68="" mat-button="" class="btnsave ml-1 mat-button mat-button-base">
+            <span class="mat-button-wrapper">Save</span>
+            <div matripple="" class="mat-ripple mat-button-ripple"></div>
+            <div class="mat-button-focus-overlay"></div>
+          </button>
+          <button _ngcontent-vxj-c68="" mat-button="" matsteppernext="" class="btnsave ml-1 mat-button mat-button-base" disabled="true" type="submit">
+            <span class="mat-button-wrapper">Next</span>
+            <div matripple="" class="mat-ripple mat-button-ripple"></div>
+            <div class="mat-button-focus-overlay"></div>
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+      <form [formGroup]="secondFormGroup">
+        <mat-form-field appearance="fill">
+          <mat-label>State</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="State"
+                 required>
+        </mat-form-field><br>
+        <mat-form-field appearance="fill">
+            <mat-label>City</mat-label>
+            <input matInput formControlName="secondCtrl" placeholder="City"
+                   required>
+          </mat-form-field><br>
+          <mat-form-field appearance="fill">
+            <mat-label>Zip</mat-label>
+            <input matInput formControlName="secondCtrl" placeholder="Zip"
+                   required>
+          </mat-form-field>
+        <div>
+          <!-- <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button> -->
+          <button _ngcontent-vxj-c68="" mat-button="" matstepperprevious="" class="btnsave mat-button mat-button-base" type="button">
+            <span class="mat-button-wrapper">Back</span>
+            <div matripple="" class="mat-ripple mat-button-ripple"></div>
+            <div class="mat-button-focus-overlay"></div>
+          </button>
+          <button _ngcontent-vxj-c68="" mat-button="" class="btnsave ml-1 mat-button mat-button-base">
+            <span class="mat-button-wrapper">Save</span>
+            <div matripple="" class="mat-ripple mat-button-ripple"></div>
+            <div class="mat-button-focus-overlay"></div>
+          </button>
+          <button _ngcontent-vxj-c68="" mat-button="" matsteppernext="" class="btnsave ml-1 mat-button mat-button-base" disabled="true" type="submit">
+            <span class="mat-button-wrapper">Next</span>
+            <div matripple="" class="mat-ripple mat-button-ripple"></div>
+            <div class="mat-button-focus-overlay"></div>
+          </button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <!-- <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button matStepperPrevious>Submit</button>
+        <button mat-button >Cancel</button>
+      </div> -->
+      <button _ngcontent-vxj-c68="" mat-button="" matstepperprevious="" class="btnsave mat-button mat-button-base" type="button">
+        <span class="mat-button-wrapper">Back</span>
+        <div matripple="" class="mat-ripple mat-button-ripple"></div>
+        <div class="mat-button-focus-overlay"></div>
+      </button>
+      <button _ngcontent-vxj-c68="" mat-button="" class="btnsave ml-1 mat-button mat-button-base">
+        <span class="mat-button-wrapper">Reset</span>
+        <div matripple="" class="mat-ripple mat-button-ripple"></div>
+        <div class="mat-button-focus-overlay"></div>
+      </button>
+      <button _ngcontent-vxj-c68="" mat-button="" class="btnsave ml-1 mat-button mat-button-base">
+        <span class="mat-button-wrapper">Submit</span>
+        <div matripple="" class="mat-ripple mat-button-ripple"></div>
+        <div class="mat-button-focus-overlay"></div>
+      </button>
+      <button _ngcontent-vxj-c68="" mat-button="" class="btnsave ml-1 mat-button mat-button-base" tabindex="0">
+        <span class="mat-button-wrapper">Cancel</span>
+        <div matripple="" class="mat-ripple mat-button-ripple"></div>
+        <div class="mat-button-focus-overlay"></div>
+      </button>
+    </mat-step>
+  </mat-stepper>
+  

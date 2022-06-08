@@ -15,7 +15,7 @@
         <div  class="loginbodyleft">
             <div  class="leftcontplace">
                 <div  class="placeholderdiv"><img 
-                        src="assets/images/loginimage.png" alt=""></div>
+                        src="assets/loginimage.png" alt=""></div>
                 <h3 >Lorem Ipsum is simply dummy text</h3>
                 <p >It is a long established fact that a reader will be distracted by the readable
                     content of a page when looking at its layout.</p>
@@ -137,13 +137,13 @@
                         </mat-form-field>
                         <!---->
                     </div>
-                    <div ><button  mat-button=""
-                            class="btnsave mat-button mat-button-base"><span class="mat-button-wrapper" (click)="saveForm()">Log in</span>
+                    <div ><button  mat-button="" (click)="saveForm()"
+                            class="btnsave mat-button mat-button-base"><span class="mat-button-wrapper" >Log in</span>
                             <div matripple="" class="mat-ripple mat-button-ripple"></div>
                             <div class="mat-button-focus-overlay"></div>
                         </button></div>
                 </form>
-                <div  class="forgotpassect"><a  href="/signup"
+                <div  class="forgotpassect"><a  routerLink="/signup"
                         class="forgotpasslink">Don't have account?Signup</a></div>
             </div>
             <!---->

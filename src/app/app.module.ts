@@ -9,7 +9,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { initializeApp } from "firebase/app";
+// import { initializeApp } from "firebase/app";
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { SignupComponent } from './signup/signup.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import { AuthService } from './core/service/auth.service';
+import { DataApiService } from './core/service/data-api.service';
+import { AuthModule, provideAuth } from '@angular/fire/auth';
+import { getAuth } from 'firebase/auth';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -24,9 +32,11 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
+    AuthModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
@@ -35,9 +45,11 @@ const firebaseConfig = {
     FormsModule,
     ReactiveFormsModule,
     // AngularFireModule.initializeApp(firebaseConfig),
-    // AngularFireAuthModule
+    MatStepperModule,
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideAuth(() => getAuth()),
   ],
-  providers: [],
+  providers: [AuthService,DataApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
