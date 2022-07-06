@@ -25,6 +25,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { DataTableComponent } from './data-table/data-table.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 const app = initializeApp(environment.firebase);
 @NgModule({
@@ -32,7 +35,8 @@ const app = initializeApp(environment.firebase);
     AppComponent,
     LoginComponent,
     SignupComponent,
-    DashboardComponent
+    DashboardComponent,
+    DataTableComponent,
   ],
   imports: [
     AuthModule,
@@ -51,7 +55,9 @@ const app = initializeApp(environment.firebase);
     HttpClientModule,
     MatToolbarModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule,
+    MatPaginatorModule
     
     
     
